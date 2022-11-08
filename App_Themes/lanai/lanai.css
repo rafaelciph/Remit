@@ -1,0 +1,131 @@
+﻿/*
+page background     light gray      e1ddd9      
+body text           dark gray       564b47      
+body background     white
+bar background      dark primary    E0A3B7      
+menu background     light primary   EBD3E0      
+
+*/
+
+body
+{
+    font-family: Rockwell, Verdana, Arial, SunSans-Regular, Sans-Serif;
+    font-size: .95em;
+    color: #4D4D4D;
+    background-color: #B3AE81;
+        width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1
+{
+    text-align: left;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+#header
+{
+    font-size: .8em;
+    text-align: right;
+    background-color: #ACBFBF;  /* #D2D2E6 or FFE6BF */
+    border-top: 1px solid #564b47;
+    border-bottom: 1px solid #564b47;
+    padding: 5px 15px 5px 20px;
+    margin: 0px;
+}
+
+#wrapper
+{
+    background-color:white;
+    overflow:hidden;
+}
+
+#menu
+{
+    width: 170px;
+    float:left;
+    border: dashed 1px gray;
+    margin: 10px 5px 10px 5px;
+    padding-bottom:20px;
+    background-color: #B36B00;  /* 6A6A8F */
+    color:white;
+}
+
+#content
+{
+    font-size: .9em;
+    width: 510px;
+    margin-left: 200px;
+    margin-top:10px;
+    height:250px;
+}
+
+#footer
+{
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: right;
+    background-color: #ACBFBF;
+    border-top: 3px solid #564b47;
+    border-bottom: 3px solid #564b47;
+    margin: 0px;
+    padding: 5px 15px 5px 15px;
+}
+
+
+
+
+h3
+{
+    font-size: 1em;
+}
+
+h4
+{
+    font-size: .9em;
+}
+
+
+/* LINK VISTED HOVER ACTIVE selectors must remain in this order to work */
+a:link
+{
+    color: #006699;
+}
+
+a:visited
+{
+    color: #330099;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+a:active
+{
+    color: green;
+}
+
+
+#menu a:link
+{
+    color: #BFFFFF;
+}
+
+#menu a:visited
+{   
+    color: #FFE6BF;
+}
+
+#menu a:hover
+{
+    text-decoration: underline;
+}
+
+#menu a:active
+{
+    color: #BFFFFF;
+}

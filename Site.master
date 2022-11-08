@@ -1,0 +1,132 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile="Site.Master.vb" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script runat="server">
+    Protected Sub LoginStatus1_LoggedOut(ByVal sender As Object, ByVal e As System.EventArgs)
+        Response.Buffer = True
+        Session.Abandon()
+        Response.Clear()
+        Response.Redirect("~/Account/Login.aspx")
+    End Sub
+</script>
+<%--disable Browser Back button in asp.net application--%>
+<script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>History of Remittance</title>
+   <link rel="shortcut icon" href="ico/favicon.ico" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+
+        .style4
+        {
+            color: #000000;
+        }
+        .style5
+        {
+            width: 100%;
+        }
+        .style6
+        {
+            width: 410px;
+            height: 41px;
+        }
+        .style7
+        {
+            height: 41px;
+        }
+        .style8
+        {
+            height: 41px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <asp:Panel ID="Panel1" runat="server">
+                  <h1>
+                    <asp:Image ID="WPLogo" runat="server" ImageUrl="Images/sponsor-a-child.png" />
+                 </h1>
+                </asp:Panel>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <table class="style5">
+                    <tr>
+                        <td class="style6">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem Text="Profile" 
+                            Value="Profile">
+                            <asp:MenuItem NavigateUrl="~/Profile/Profile.aspx" Text="Profile" 
+                                Value="Profile"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" 
+                                Text="Change Password" Value="Change Password"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Profile/Remit.aspx" Text="Remittance" 
+                            Value="Remittance"></asp:MenuItem>
+                        <asp:MenuItem Text="Administrator" Value="Administrator" 
+                            NavigateUrl="~/Default.aspx">
+                            <asp:MenuItem Text="Liquidation" Value="Liquidation" 
+                                NavigateUrl="~/Boss/Liq.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Monitoring" Value="Monitoring" 
+                                NavigateUrl="~/Boss/Monitoring.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Uploading" Value="Uploading" 
+                                NavigateUrl="~/Boss/Uploading.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="User Account" Value="User Account" 
+                                NavigateUrl="~/Boss/ManageAccount.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Employee List" Value="User Account" 
+                                NavigateUrl="~/Boss/EmpList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Delete Record" Value="User Account" 
+                                NavigateUrl="~/Boss/RemoveRecord.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+                        </td>
+                        <td style="text-align: center" class="style8">
+                            &nbsp;</td>
+                        <td style="text-align: right" class="style7">
+                            <asp:Label ID="lblidno" runat="server" 
+                                style="font-size: small; font-weight: 700; color: #FFFFFF"></asp:Label>
+                            <asp:Label ID="lblname" runat="server" 
+                                style="font-size: small; font-weight: 700; color: #FFFFFF"></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+        <span class="style4">Copyright © 2013 Compassion Int&#39;l. Philippines<br />
+        ...</span></div>
+    </form>
+</body>
+</html>

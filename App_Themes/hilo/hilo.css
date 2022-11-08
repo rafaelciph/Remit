@@ -1,0 +1,20 @@
+﻿body
+{
+    font-family: Calibri, Lucida Sans, Verdana, Arial, SunSans-Regular, Sans-Serif;
+    font-size: 85%;
+	margin:30px;
+    background-color:White; 
+}
+
+p 
+{
+    font-size: 1.0em;
+    width: 685px;
+}
+
+/* Three-pixel bug fix: http://www.positioniseverything.net/explorer/threepxtest.html */
+* html p { height: 1%; }
+#body-container
+{  
+}
+
